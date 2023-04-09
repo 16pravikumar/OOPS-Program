@@ -1,0 +1,52 @@
+package javap;
+/*Parent-Child Relation-Parent also call child method using override
+ * 
+can parent class can be call child class method after extends in java???- Answer below
+Yes, it is possible for a parent class to call a child class method in Java, but only if the child class has overridden a method that is defined in the parent class.
+
+When a child class extends a parent class, it inherits all the methods and variables of the parent class. If the child class overrides a method that is defined in the parent class,
+ the child class implementation of that method will be called when the method is invoked on an instance of the child class.
+
+However, if the parent class calls the method on an instance of the child class, the child class implementation of the method will be called. This is known as method overriding, 
+and it allows child classes to provide their own implementation of methods that are defined in the parent class. 
+Here is an example to demonstrate this concept:
+*/
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+class Animal{
+	public void eat() {
+		System.out.print("Animal can eat ");
+	}
+
+	public void bark() {
+		// TODO Auto-generated method stub
+		System.out.println("Dog is part of Animal");
+	}
+}
+class Dog extends Animal{
+	@Override
+	public void bark() {
+		System.out.println("Dog can bark");
+	}
+}
+public class javap {
+
+	public static void main(String[] args) {
+		Dog obj=new Dog();
+		obj.eat();
+		obj.bark();
+		Animal obj1=new Dog();
+		obj1.eat();
+		obj1.bark();
+		Animal obj2=new Animal();
+		obj2.eat();
+		obj2.bark();
+	}
+
+}
+/*Animal can eat Dog can bark
+  Animal can eat Dog can bark
+  Animal can eat Dog is part of Animal
+ * 
+ */
