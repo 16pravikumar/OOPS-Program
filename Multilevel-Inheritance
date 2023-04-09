@@ -1,0 +1,45 @@
+package javap;
+/*Multilevel inheritance
+*/
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+class Animal{
+	public void eat() {
+		System.out.print("|Animal can eat ");
+	}
+
+	public void bark() {
+		// TODO Auto-generated method stub
+		System.out.println("|Dog is part of Animal ");
+	}
+}
+class Dog extends Animal{
+	@Override
+	public void bark() {
+		System.out.print("|Dog can bark  ");
+	}
+}
+class Pitbull extends Dog {
+	public void Breed() {
+		System.out.println("|Pitbull is American Breed");
+	}
+}
+public class javap {
+
+	public static void main(String[] args) {
+		Pitbull obj1=new Pitbull();
+		obj1.eat();
+		obj1.bark();
+		obj1.Breed();
+		Dog obj2=new Pitbull();
+		obj2.eat();
+		obj2.bark();
+	//	obj2.Breed(); It will give error because parent object can not call child class without override
+	}
+
+}
+/*|Animal can eat |Dog can bark  |Pitbull is American Breed
+|Animal can eat |Dog can bark  
+ * 
+ */
