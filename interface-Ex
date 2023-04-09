@@ -1,0 +1,55 @@
+package javap;
+/*Interface Example
+*/
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+ interface interface1{
+	public static void eat() { 
+		System.out.print("Every Animal can eat |");
+	}
+	default void dog() {
+		System.out.print("Dog always barking |");
+        // call the private method
+		Pitbull();
+    }
+	private void Pitbull() {
+		System.out.print("Pitbull breed in America  |");
+    }
+}
+public class javap implements interface1{
+	
+	public static void eat() {
+		System.out.print("Every Animal can sleep |");
+	}
+	
+	public static void main(String[] args) {
+		interface1.eat();
+		
+		//override static method through the class object only
+		javap.eat();
+		
+		//Private method can be call here
+		interface1 obj1=new javap();
+		  obj1.dog();
+		  System.out.println();
+		  //interface1 obj2=new interface1(); Cannot instantiate the type interface1
+		  interface1 obj2=new javap(); 
+		//  obj2.Pitbull();It gives error because we can not call directly private method
+		  
+		  //Default methos also can be inherit.If I will write the below override dog method then out will change
+		  //means then method Dog() will be override
+		  obj2.dog();
+		  /*I 
+		   * @Override
+	          public void dog() {
+	                  	System.out.print("Happy Dog |");
+	                    }
+		   */
+		}
+
+}
+/*Every Animal can eat |Every Animal can sleep |Dog always barking |Pitbull breed in America  |
+Dog always barking |Pitbull breed in America  | 
+ * 
+ */
