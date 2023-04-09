@@ -1,0 +1,29 @@
+package javap;
+// Single Inheritance
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+class Animal{
+	public void eat() {
+		System.out.println("Animal can eat");
+	}
+}
+class Dog extends Animal{
+	public void bark() {
+		System.out.println("Dog can bark");
+	}
+}
+public class javap {
+
+	public static void main(String[] args) {
+		Dog obj=new Dog();
+		obj.eat();
+		obj.bark();
+	}
+
+}
+/*
+ * Animal can eat
+   Dog can bark
+ * 
+ */
